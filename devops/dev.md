@@ -1,4 +1,4 @@
-# Devops开发运维规范
+# 开发流程及规范
 
 ## 使用Git branch进行开发
 
@@ -11,7 +11,7 @@
 git clone https://github.com/Yunxuan-Develop/repo_name.git
 
 # 2. 进入代码路径
-cd reps_name
+cd repo_name
 
 # 3. 新建开发分支
 # branch_name一般命名为 brandonye/xxx （xxx 为当前分支开发内容名字）
