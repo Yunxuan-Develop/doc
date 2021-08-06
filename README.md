@@ -5,7 +5,7 @@
 
 云轩开发团队于2020年2月由数名中山大学学生组建，是一个集前端、后端及服务端基础研究和产品开发的团队。
 
-团队擅长并着力于设计和开发大型web系统，涵盖各类小程序，网页等基于web的应用程序。团队涉及技术栈涵括：`vue`，`flask`，`gin`，`grpc`，`mysql`，`redis`等，使用的语言包含`javascript`, `python`, `go`等。团队成员毕业后多就职于互联网大厂或名校深造，欢迎对前后台研发技术感兴趣的同学参与交流。
+团队擅长并着力于设计和开发大型web系统，涵盖各类小程序，网页等基于web的应用程序。团队涉及技术栈涵括：`Vue`, `Flask`, `Gin`，`Mysql`等，使用的语言包含`Python`, `Go`, `Javascript`等。团队成员毕业后多就职于互联网大厂或名校深造，欢迎对前后台研发技术感兴趣的同学参与交流。
 
 [Github主页](https://github.com/Yunxuan-Develop)  
 opensource@yunxuancyj.cn

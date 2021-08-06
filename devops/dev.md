@@ -31,8 +31,8 @@ git add xxx
 
 # commit修改
 # message 一般格式为 "$purpose: $msg.($issueID)"
-# 	$purpose: feat(增改功能), bug(修理bug)
-#	$msg: 这个commit的描述
+#   $purpose: feat(增改功能), bug(修理bug)
+#   $msg: 这个commit的描述
 #   $issueID: 这个commit对应的issue id, 例如Yunxuan-Develop/table#1
 git commit -m "message"
 
