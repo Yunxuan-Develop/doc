@@ -1,4 +1,4 @@
-# 云轩技术开发团队 <!-- {docsify-ignore} -->
+# 云轩技术开发团队
 <br/>
 
 <img src="./assets/logo.png" width = "500" alt="图片名称" />
