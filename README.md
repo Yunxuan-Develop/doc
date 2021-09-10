@@ -1,7 +1,7 @@
 # 云轩技术开发团队
 <br/>
 
-<img src="./assets/logo.png" width = "500" alt="图片名称" />
+<img src="assets/logo.png" width = "500" alt="图片名称" />
 
 云轩开发团队于2020年2月由数名中山大学学生组建，是一个集前端、后端及服务端基础研究和产品开发的团队。
 
