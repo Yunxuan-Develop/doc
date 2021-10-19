@@ -18,8 +18,12 @@
       loadSidebar: true,
       loadNavbar: true,
       subMaxLevel: 2,
+      // routerMode: 'history',   // 去掉 /#/
+      requestHeaders: {       // 每次都读最新的md文件
+        'cache-control': 'max-age=0',
+      },
       basePath: '/yunxuan/',
-      relativePath: true,
+      // basePath: '/',
     }
   </script>
   <!-- Docsify v4 -->

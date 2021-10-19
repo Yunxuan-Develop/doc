@@ -86,7 +86,7 @@ service mysql stop		   # 停止
 
 
 
-## **Python**开发环境配置
+## **Anaconda**开发环境配置
 
 ### Step1: 安装Anaconda
 
@@ -143,6 +143,14 @@ pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 ```shell
 pip --default-timeout=1000 install -U tensorflow-gpu								# 设置超时时间
 pip install -U tensorflow-gpu -i https://pypi.tuna.tsinghua.edu.cn/simple			# 使用清华源
+```
+
+<br>
+
+## **python** 开发环境配置
+### 安装pip3
+```shell
+sudo apt-get install python3-pip
 ```
 
 <br>
@@ -567,6 +575,137 @@ let g:NERDTreeMapVOpenSplit=8
 "==============================================================================
 let g:NERDSpaceDelims=1
 ```
+</br>
+
+### Step4: 配置vscode-vim
+```json
+{
+    "terminal.integrated.fontFamily": "FiraCode NF",
+    // "vim - vscode 配置文件"
+    "vim.easymotion": true,   // leader + leader + s 当前页面跳转
+    "vim.sneak": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.handleKeys": 
+      { 
+        "<C-a>": false,
+        "<C-v>": false,
+        "<C-c>": false,
+        "<C-x>": false, 
+        "<C-f>": false, 
+        "<C-h>": false, 
+        "<C-s>": false, 
+        "<C-z>": false, 
+        "<C-y>": false, 
+        "<C-w>": false,
+      },
+    "vim.insertModeKeyBindings": [
+      // 插入模式下的左右映射
+      {
+        "before": ["<C-j>"],
+        "after": ["<left>"]
+      },
+      {
+        "before": ["<C-k>"],
+        "after": ["<down>"]
+      },
+      {
+        "before": ["<C-l>"],
+        "after": ["<right>"]
+      },
+      // 插入模式下 Home和End 映射
+      {
+        "before": ["<C-e>"],
+        "after": ["<End>"]
+      },
+      {
+        "before": ["<C-a>"],
+        "after": ["<Home>"]
+      },
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+      // normal模式下上下左右映射
+      {
+        "before": ["j"],
+        "after": ["h"]
+      },
+      {
+        "before": ["k"],
+        "after": ["j"]
+      },
+      {
+        "before": ["i"],
+        "after": ["k"]
+      },
+      // normal模式下进入插入模式映射
+      {
+        "before": ["h"],
+        "after": ["a"]
+      },
+      {
+        "before": ["a"],
+        "after": ["i"]
+      },
+      // normal模式下回车映射
+      {
+        "before": ["<CR>"],
+        "after": ["o","Esc"]
+      },
+      // normal模式下Home和End映射
+      {
+        "before": ["<C-e>"],
+        "after": ["<End>"]
+      },
+      {
+        "before": ["<C-a>"],
+        "after": ["<Home>"]
+      },
+      // normal 切换不同vim文件 E往左，R往右边 
+      {
+        "before": ["E"],
+        "after": ["g", "T"]
+      },
+      {
+        "before": ["R"],
+        "after": ["g", "t"]
+      },
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+      // visual模式下上下左右映射
+      {
+        "before": ["j"],
+        "after": ["h"]
+      },
+      {
+        "before": ["k"],
+        "after": ["j"]
+      },
+      {
+        "before": ["i"],
+        "after": ["k"]
+      },
+      // visual 模式下缩进映射
+      {
+        "before": [
+            ">"
+        ],
+        "commands": [
+            "editor.action.indentLines"
+        ]
+      },
+      {
+          "before": [
+              "<"
+          ],
+          "commands": [
+              "editor.action.outdentLines"
+          ]
+      },
+    ],
+}
+```
 
 <br>
 
@@ -717,7 +856,7 @@ $ sudo chmod +x /usr/local/bin/docker-compose
 
 <br>
 
-## ZSH终端配置
+## **ZSH**终端配置
 
 ### 安装zsh和Oh My zsh
 
@@ -730,7 +869,9 @@ $ sudo apt install zsh
 # 确认 zsh 成功安装
 $ which zsh
 
-# 设置为默认 Shell
+# 设置login终端为默认 Shell
+# 这个终端只会在ssh登录的时候默认启动
+# 在vscode创建终端或者ubuntu-desktop使用时还需要专门将默认终端设置为zsh
 $ chsh -s /usr/bin/zsh
 
 # 安装oh my zsh
@@ -749,7 +890,12 @@ git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerl
 # 然后设置 .zshrc 中的变量 ZSH_THEME
 Set ZSH_THEME=powerlevel10k/powerlevel10k in your ~/.zshrc.
 
-# 按照提示安装MesloLGS NF字体，重启终端后按照提示进行配置即可
+# 按照提示安装MesloLGS NF字体，重启终端后按照提示进行配置即可，也可以安装Nerd系列字体比如Fira Nerd
+
+# 在ubuntu上安装后 在terminal的preference里设置字体即可
+sudo apt install fonts-firacode
+
+# windows可以上网下载字体包后手动安装，最后在vscode设置中搜索font family 将terminal字体修改为安装的字体
 ```
 
 Oh My Zsh 比较常用的两个插件是 [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) 与 [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)。分别用来自动补全和高亮。
