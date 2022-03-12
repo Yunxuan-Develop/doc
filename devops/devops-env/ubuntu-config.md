@@ -88,12 +88,15 @@ service mysql stop		   # 停止
 
 ## **Anaconda**开发环境配置
 
-### Step1: 安装Anaconda
+### Step1: 安装Anaconda / Miniconda
 
 官网由于是境外网站，访问慢，推荐用清华大学的开源镜像站点。使用wget直接获取安装文件：
 
 ```shell
 wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-5.3.1-Linux-x86_64.sh
+
+# 也可以安装miniconda
+wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh
 ```
 
 下载好之后直接运行文件，可能需要先给文件赋予权限:
@@ -109,6 +112,9 @@ chmod +x Anaconda3-5.3.1-Linux-x86_64.sh
 vim ～/.bashrc
 export PATH=/home/ubuntu/anaconda3/bin:$PATH
 source ~/.bashrc
+
+# 也可以直接进入conda目录bin文件夹下执行
+conda init
 ```
 
 <br>
@@ -143,6 +149,13 @@ pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 ```shell
 pip --default-timeout=1000 install -U tensorflow-gpu								# 设置超时时间
 pip install -U tensorflow-gpu -i https://pypi.tuna.tsinghua.edu.cn/simple			# 使用清华源
+```
+
+换源失效请注意安装指令后面是否指定了下载源：`-c xxx`。
+
+如果遇到CondaError: Downloaded bytes did not match Content-Length的问题，换源也无法解决问题，则可以尝试修改超时时间：
+```shell
+conda config --set remote_read_timeout_secs 1500.0
 ```
 
 <br>
@@ -985,6 +998,9 @@ $ git --version						# 查看版本
 ```shell
 $ git config --global user.name "your name"
 $ git config --global user.email "your email"
+
+# 将默认编辑器修改为vim
+$ git config --global core.editor vim
 ```
 
 接下来就可以把远程仓库clone到本地了
