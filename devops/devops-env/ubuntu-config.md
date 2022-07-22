@@ -764,6 +764,17 @@ service nginx status			# 查看nginx状态
 
 ## **Docker**安装及配置
 
+### 使用脚本安装
+
+在测试或开发环境中 Docker 官方为了简化安装流程，提供了一套便捷的安装脚本，Ubuntu 系统上可以使用这套脚本安装，另外可以通过 `--mirror` 选项使用国内源进行安装：
+
+```shell
+# $ curl -fsSL test.docker.com -o get-docker.sh
+$ curl -fsSL get.docker.com -o get-docker.sh
+$ sudo sh get-docker.sh --mirror Aliyun
+# $ sudo sh get-docker.sh --mirror AzureChinaCloud
+```
+
 ### 使用APT安装
 
 由于 `apt` 源使用 HTTPS 以确保软件下载过程中不被篡改。因此，我们首先需要添加使用 HTTPS 传输的软件包以及 CA 证书。
@@ -815,19 +826,6 @@ $ sudo apt-get install docker-ce docker-ce-cli containerd.io
 
 <br>
 
-### 使用脚本安装
-
-在测试或开发环境中 Docker 官方为了简化安装流程，提供了一套便捷的安装脚本，Ubuntu 系统上可以使用这套脚本安装，另外可以通过 `--mirror` 选项使用国内源进行安装：
-
-```shell
-# $ curl -fsSL test.docker.com -o get-docker.sh
-$ curl -fsSL get.docker.com -o get-docker.sh
-$ sudo sh get-docker.sh --mirror Aliyun
-# $ sudo sh get-docker.sh --mirror AzureChinaCloud
-```
-
-<br>
-
 ### 建立 docker 用户组
 
 ````shell
@@ -844,12 +842,34 @@ sudo newgrp docker					# 更新
 # 启动docker
 $ sudo systemctl enable docker			
 $ sudo systemctl start docker
+# 如果启动失败，可能是因为没有systemctl，改用：
+$ sudo service docker start
 
 $ systemctl restart  docker				# 重启
 
 # 停止docker
 $ sudo service docker stop				
 $ sudo systemctl stop docker
+```
+
+<br>
+
+### 更换下载源
+```shell
+$ cd /etc/docker
+ 
+$ vim daemon.json
+# 将下述文字写入：
+# {
+#   "registry-mirrors": [
+#     "https://hub-mirror.c.163.com",
+#     "https://ustc-edu-cn.mirror.aliyuncs.com",
+#     "https://ghcr.io",
+#     "https://mirror.baidubce.com"
+#   ]
+# }
+
+$ service docker restart
 ```
 
 <br>
